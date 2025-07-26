@@ -1232,7 +1232,7 @@
             const type = document.getElementById('donationType').value;
             const typeText = type === 'one-time' ? 'one-time' : type + ' recurring';
             
-            alert(`Thank you for your ${typeText} donation of $${amount}! You will receive a confirmation email shortly.`);
+            alert(`Terima kasih atas donasi ${typeText} Anda sebesar Rp${amount}! Anda akan menerima email konfirmasi segera.`);
             this.reset();
         });
 
@@ -1244,7 +1244,7 @@
 
         document.getElementById('prayerForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you for sharing your prayer request. Our prayer team will lift this up to the Lord.');
+            alert('Terima kasih telah mengirimkan permohonan doa Anda. Tim doa kami akan mendoakan permohonan ini secara rahasia.');
             this.reset();
             document.getElementById('followupInfo').style.display = 'none';
             const modal = bootstrap.Modal.getInstance(document.getElementById('prayerModal'));
