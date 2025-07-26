@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Life Foundation - Christian Ministry for Spiritual Renewal</title>
+    <meta name="description" content="Faith-based ministry helping lost souls find purpose through Christ. Offering spiritual guidance, counseling, and community support in Batam, Indonesia.">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
+    
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2a7fba;
+            --secondary-color: #3bb77e;
+            --accent-color: #f8c537;
+            --dark-color: #1a1a1a;
+            --light-color: #f8f9fa;
+            --scripture-color: #6c757d;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-color);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        /* Typography */
+        .scripture {
+            font-style: italic;
+            color: var(--scripture-color);
+            border-left: 3px solid var(--accent-color);
+            padding-left: 15px;
+            margin: 20px 0;
+        }
+        
+        .prayer {
+            background-color: rgba(42, 127, 186, 0.1);
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            padding: 10px 0;
+            background-color: rgba(255, 255, 255, 0.98);
+        }
+        
+        .navbar-brand img {
+            height: 50px;
+            transition: all 0.3s;
+        }
+        
+        .navbar.scrolled .navbar-brand img {
+            height: 40px;
+        }
+        
+        .nav-link {
+            color: var(--dark-color);
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dropdown-item {
+            padding: 8px 20px;
+        }
+        
+        .dropdown-item:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 180px 0 150px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Buttons */
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #1e6a9b;
+            border-color: #1e6a9b;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #2e9d6b;
+            border-color: #2e9d6b;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline-light {
+            border-width: 2px;
+        }
+        
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background: var(--primary-color);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--scripture-color);
+            margin-bottom: 50px;
+        }
+        
+        /* Program Cards */
+        .program-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            height: 100%;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .program-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        /* About Section */
+        .about-section {
+            background-color: #f8f9fa;
+        }
+        
+        /* Testimonials */
+        .testimonial-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1519810482111-9b6de251613c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+        }
+        
+        .testimonial-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 15px;
+            backdrop-filter: blur(5px);
+            height: 100%;
+            transition: all 0.3s;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+        }
+        
+        /* Donation Section */
+        .donation-option {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .donation-option:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .donation-option.active {
+            border-color: var(--primary-color);
+            background-color: rgba(42, 127, 186, 0.05);
+        }
+        
+        /* Contact */
+        .contact-info {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-logo {
+            height: 50px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links h5 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links h5:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 40px;
+        }
+        
+        /* Back to top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            font-size: 1.2rem;
+            z-index: 999;
+            display: none;
+            transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 1199.98px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 991.98px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            .section {
+                padding: 60px 0;
+            }
+        }
+        
+        @media (max-width: 767.98px) {
+            .navbar {
+                padding: 10px 0;
+            }
+            .hero-section {
+                padding: 120px 0 100px;
+                background-attachment: scroll;
+            }
+            .hero-title {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 575.98px) {
+            .hero-section {
+                padding: 100px 0 80px;
+            }
+            .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            .d-flex.gap-3 {
+                flex-direction: column;
+                gap: 10px !important;
+            }
+        }
+    </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100">
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="assets/img/logo-new-life.png" alt="New Life Foundation Logo" class="img-fluid">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#programs">Programs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-primary" href="#donate">Donate</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h1 class="hero-title">Finding Purpose in Christ, Restoring Hope</h1>
+                    <p class="hero-subtitle">"For I know the plans I have for you," declares the LORD, "plans to prosper you and not to harm you, plans to give you hope and a future." <span class="scripture">Jeremiah 29:11</span></p>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+                        <a href="#programs" class="btn btn-primary">Explore Our Programs</a>
+                        <a href="#donate" class="btn btn-secondary">Support Our Mission</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripture Banner -->
+    <section class="bg-primary text-white py-4">
+        <div class="container text-center">
+            <p class="mb-0 lead"><em>"Therefore, if anyone is in Christ, the new creation has come: The old has gone, the new is here!"</em> <span class="scripture">2 Corinthians 5:17</span></p>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="section-title">Our Ministry Programs</h2>
+                    <p class="section-subtitle">Guiding individuals to spiritual renewal and purpose through Christ-centered programs</p>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card program-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="program-icon">
+                                <i class="fas fa-bible"></i>
+                            </div>
+                            <h4>Biblical Counseling</h4>
+                            <p>One-on-one and group sessions rooted in Scripture to help individuals overcome life's challenges through God's wisdom and grace.</p>
+                            <div class="prayer">
+                                <p>"Your word is a lamp for my feet, a light on my path." <span class="scripture">Psalm 119:105</span></p>
+                            </div>
+                            <a href="#" class="btn btn-outline-primary mt-2">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card program-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="program-icon">
+                                <i class="fas fa-hands-praying"></i>
+                            </div>
+                            <h4>Discipleship Training</h4>
+                            <p>In-depth Bible study and mentorship programs to grow in faith and develop a closer relationship with Jesus Christ.</p>
+                            <div class="prayer">
+                                <p>"Therefore go and make disciples of all nations..." <span class="scripture">Matthew 28:19</span></p>
+                            </div>
+                            <a href="#" class="btn btn-outline-primary mt-2">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card program-card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="program-icon">
+                                <i class="fas fa-church"></i>
+                            </div>
+                            <h4>Recovery Ministry</h4>
+                            <p>A Christ-centered support system for those struggling with addiction, depression, or other life-controlling issues.</p>
+                            <div class="prayer">
+                                <p>"He heals the brokenhearted and binds up their wounds." <span class="scripture">Psalm 147:3</span></p>
+                            </div>
+                            <a href="#" class="btn btn-outline-primary mt-2">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="section-title">Our Mission & Vision</h2>
+                    <p class="lead">Bringing God's love and transformation to Batam since 2015</p>
+                    <p>New Life Foundation is a Christian ministry dedicated to helping individuals find their God-given purpose through spiritual guidance, biblical counseling, and compassionate community support.</p>
+                    <p>We believe that through Jesus Christ, every person can experience true transformation and live a life filled with hope, regardless of their past or current circumstances.</p>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-cross text-primary me-2"></i> Christ-centered approach</li>
+                                <li class="mb-2"><i class="fas fa-heart text-primary me-2"></i> Compassionate care</li>
+                                <li class="mb-2"><i class="fas fa-hands-helping text-primary me-2"></i> Practical support</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-bible text-primary me-2"></i> Scripture-based guidance</li>
+                                <li class="mb-2"><i class="fas fa-pray text-primary me-2"></i> Prayer ministry</li>
+                                <li class="mb-2"><i class="fas fa-door-open text-primary me-2"></i> Open to all</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn btn-primary mt-3">Join Our Community</a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1682685797303-0ad51eb23e13?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxfHx8ZW58MHx8fHx8" alt="New Life Foundation Ministry" class="img-fluid rounded shadow-lg">
+                        <div class="position-absolute bottom-0 start-0 bg-primary text-white p-3 m-3 rounded">
+                            <h5 class="mb-0">"Being transformed by the renewing of your mind"</h5>
+                            <p class="mb-0"><span class="scripture">Romans 12:2</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Stats -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="counter">
+                        <h2 class="display-4 text-primary">1,200+</h2>
+                        <p class="lead">Lives Transformed</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="counter">
+                        <h2 class="display-4 text-primary">75+</h2>
+                        <p class="lead">Dedicated Volunteers</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="counter">
+                        <h2 class="display-4 text-primary">8+</h2>
+                        <p class="lead">Years Serving</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="counter">
+                        <h2 class="display-4 text-primary">50+</h2>
+                        <p class="lead">Weekly Bible Studies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="section testimonial-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="section-title text-white">Changed Lives</h2>
+                    <p class="section-subtitle text-white">Hear from those who found new life in Christ through our ministry</p>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card h-100">
+                        <div class="text-center mb-4">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John's Testimony" class="testimonial-img">
+                        </div>
+                        <div class="text-center">
+                            <h5 class="text-white">John Doe</h5>
+                            <p class="text-muted">Former Addict, Now Ministry Leader</p>
+                            <p class="text-white">"I was lost in addiction for 15 years. Through New Life's recovery program and God's grace, I've been clean for 3 years and now help others find freedom in Christ."</p>
+                            <div class="text-warning mb-3">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <button class="btn btn-sm btn-outline-light" data-bs-toggle="modal" data-bs-target="#testimonial1">Read Full Story</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card h-100">
+                        <div class="text-center mb-4">
+                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sarah's Testimony" class="testimonial-img">
+                        </div>
+                        <div class="text-center">
+                            <h5 class="text-white">Sarah Lim</h5>
+                            <p class="text-muted">From Depression to Joy</p>
+                            <p class="text-white">"After my divorce, I fell into deep depression. The biblical counseling at New Life helped me find my worth in Christ and rebuild my life on God's promises."</p>
+                            <div class="text-warning mb-3">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <button class="btn btn-sm btn-outline-light" data-bs-toggle="modal" data-bs-target="#testimonial2">Read Full Story</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card h-100">
+                        <div class="text-center mb-4">
+                            <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="David's Testimony" class="testimonial-img">
+                        </div>
+                        <div class="text-center">
+                            <h5 class="text-white">David Wong</h5>
+                            <p class="text-muted">Businessman Redeemed</p>
+                            <p class="text-white">"I had success but no purpose. Through discipleship at New Life, I discovered God's plan for my life and now use my business to serve His kingdom."</p>
+                            <div class="text-warning mb-3">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <button class="btn btn-sm btn-outline-light" data-bs-toggle="modal" data-bs-target="#testimonial3">Read Full Story</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Modals -->
+    <div class="modal fade" id="testimonial1" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">John's Transformation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John" class="img-fluid rounded-circle mb-3" style="width: 150px;">
+                            <h4>John Doe</h4>
+                            <p class="text-muted">Former Addict, Now Ministry Leader</p>
+                        </div>
+                        <div class="col-md-8">
+                            <p>"I was addicted to drugs for 15 years, lost everything, and was living on the streets. One day, a volunteer from New Life Foundation invited me to their recovery program. At first, I resisted, but their persistent love broke through my hardened heart.</p>
+                            <p>Through their Christ-centered program, I discovered that my true need wasn't just to stop using drugs, but to fill the God-shaped void in my life. The Bible studies and one-on-one counseling helped me understand God's love for the first time.</p>
+                            <p class="scripture">"Therefore, if anyone is in Christ, the new creation has come: The old has gone, the new is here!" 2 Corinthians 5:17</p>
+                            <p>Today, I've been clean for 3 years and serve as a leader in the very program that saved my life. I'm married, reunited with my family, and most importantly, I have a living relationship with Jesus Christ."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="testimonial2" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sarah's Journey to Healing</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sarah" class="img-fluid rounded-circle mb-3" style="width: 150px;">
+                            <h4>Sarah Lim</h4>
+                            <p class="text-muted">From Depression to Joy</p>
+                        </div>
+                        <div class="col-md-8">
+                            <p>"After my husband left me for another woman, I fell into a deep depression. I couldn't eat, sleep, or function normally. A friend brought me to New Life Foundation's weekly support group for broken marriages.</p>
+                            <p>The biblical counseling helped me process my pain in light of God's truth. I learned that my worth isn't defined by my marital status but by being a child of God. The women's Bible study became my lifeline as I rediscovered God's love and purpose for my life.</p>
+                            <p class="scripture">"The LORD is close to the brokenhearted and saves those who are crushed in spirit." Psalm 34:18</p>
+                            <p>Today, I lead a support group for other women going through divorce. While the pain was real, God used it to draw me closer to Him and give me a ministry of comfort to others."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="testimonial3" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">David's Spiritual Awakening</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="David" class="img-fluid rounded-circle mb-3" style="width: 150px;">
+                            <h4>David Wong</h4>
+                            <p class="text-muted">Businessman Redeemed</p>
+                        </div>
+                        <div class="col-md-8">
+                            <p>"On the outside, I had it all - a successful business, beautiful home, and financial security. But inside, I felt empty and directionless. I started asking, 'Is this all there is to life?'</p>
+                            <p>A business associate invited me to New Life's men's discipleship group. Through studying the Bible with other Christian businessmen, I realized I'd been chasing success at the expense of my soul. I gave my life to Christ and began aligning my business practices with biblical principles.</p>
+                            <p class="scripture">"What good is it for someone to gain the whole world, yet forfeit their soul?" Mark 8:36</p>
+                            <p>Now I run my business as a ministry, providing jobs for graduates of New Life's recovery program. My family has come to faith, and we're growing together in Christ. For the first time, my life has eternal purpose."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Donation Section -->
+    <section id="donate" class="section bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="section-title">Partner With Us</h2>
+                    <p class="lead">Your support transforms lives through Christ</p>
+                    <p>Your generous donation enables us to continue our vital ministry of bringing hope to the hopeless and helping people discover new life in Jesus Christ. Every contribution makes an eternal difference.</p>
+                    
+                    <div class="accordion mt-4" id="donationImpact">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#impact1">
+                                    How Your Donation Helps
+                                </button>
+                            </h2>
+                            <div id="impact1" class="accordion-collapse collapse show" data-bs-parent="#donationImpact">
+                                <div class="accordion-body">
+                                    <ul>
+                                        <li><strong>$50</strong> - Provides a week of meals for someone in our recovery program</li>
+                                        <li><strong>$100</strong> - Covers counseling sessions for someone in crisis</li>
+                                        <li><strong>$250</strong> - Sponsors a month of discipleship training</li>
+                                        <li><strong>$500</strong> - Supports outreach events to share the Gospel</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#impact2">
+                                    Our Financial Stewardship
+                                </button>
+                            </h2>
+                            <div id="impact2" class="accordion-collapse collapse" data-bs-parent="#donationImpact">
+                                <div class="accordion-body">
+                                    <p>New Life Foundation is committed to financial integrity and transparency. 85% of all donations go directly to program services, with only 15% used for administrative and fundraising expenses.</p>
+                                    <p>We are audited annually and provide detailed financial reports to all donors upon request.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card shadow-sm">
+                        <div class="card-body p-4">
+                            <h4 class="mb-4">Make a Donation</h4>
+                            <form id="donationForm">
+                                <div class="row mb-3">
+                                    <div class="col-12">
+                                        <label class="form-label">Donation Type</label>
+                                        <div class="d-flex gap-2 flex-wrap">
+                                            <button type="button" class="btn btn-outline-primary donation-type active" data-amount="">One-Time</button>
+                                            <button type="button" class="btn btn-outline-primary donation-type" data-amount="monthly">Monthly</button>
+                                            <button type="button" class="btn btn-outline-primary donation-type" data-amount="quarterly">Quarterly</button>
+                                            <button type="button" class="btn btn-outline-primary donation-type" data-amount="yearly">Yearly</button>
+                                        </div>
+                                        <input type="hidden" id="donationType" value="one-time">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-12">
+                                        <label class="form-label">Donation Amount</label>
+                                        <div class="d-flex gap-2 flex-wrap">
+                                            <button type="button" class="btn btn-outline-secondary donation-amount" data-amount="50">$50</button>
+                                            <button type="button" class="btn btn-outline-secondary donation-amount" data-amount="100">$100</button>
+                                            <button type="button" class="btn btn-outline-secondary donation-amount" data-amount="250">$250</button>
+                                            <button type="button" class="btn btn-outline-secondary donation-amount active" data-amount="custom">Custom</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="firstName" class="form-label">First Name</label>
+                                        <input type="text" class="form-control" id="firstName" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="lastName" class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" id="lastName" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="amount" class="form-label">Donation Amount</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">$</span>
+                                        <input type="number" class="form-control" id="amount" placeholder="100" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Payment Method</label>
+                                    <div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="paymentMethod" id="creditCard" value="credit" checked>
+                                            <label class="form-check-label" for="creditCard">Credit Card</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="paymentMethod" id="bankTransfer" value="bank">
+                                            <label class="form-check-label" for="bankTransfer">Bank Transfer</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="paymentMethod" id="digitalWallet" value="wallet">
+                                            <label class="form-check-label" for="digitalWallet">Digital Wallet</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="checkbox" id="coverFees">
+                                    <label class="form-check-label" for="coverFees">
+                                        I'd like to cover the processing fees so 100% of my donation goes to the ministry
+                                    </label>
+                                </div>
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary">Donate Now</button>
+                                </div>
+                                <p class="text-muted small mt-2">All donations are tax-deductible. You will receive a receipt for your records.</p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="section-title">We're Here For You</h2>
+                    <p class="section-subtitle">Contact us for spiritual guidance, counseling, or to learn more about our programs</p>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="contact-info text-center">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h4>Our Location</h4>
+                        <p>123 Hope Street<br>Batam, Riau, Indonesia 29464</p>
+                        <a href="#map" class="btn btn-sm btn-outline-primary">View Map</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="contact-info text-center">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h4>Contact Us</h4>
+                        <p>Main: (+62) 123-456-7890<br>Helpline: (+62) 123-456-7891</p>
+                        <p>Mon-Fri: 9am-5pm<br>Sat: 9am-1pm</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="contact-info text-center">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>Email Us</h4>
+                        <p>info@newlifefoundation.id<br>support@newlifefoundation.id</p>
+                        <p>Response within 24 hours</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5" id="map">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="map-container shadow-sm rounded overflow-hidden">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.022910795299!2d104.043588214759!3d1.119999199187396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d989393240216f%3A0x5a3a79f0f9b60b8e!2sBatam%2C%20Batam%20City%2C%20Riau%20Islands%2C%20Indonesia!5e0!3m2!1sen!2sus!4v1627056000000!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body p-4">
+                            <h4 class="mb-4">Send Us a Message</h4>
+                            <form id="contactForm">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="contactName" class="form-label">Name</label>
+                                        <input type="text" class="form-control" id="contactName" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="contactEmail" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="contactEmail" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="contactPhone" class="form-label">Phone (Optional)</label>
+                                    <input type="tel" class="form-control" id="contactPhone">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="contactSubject" class="form-label">Subject</label>
+                                    <select class="form-select" id="contactSubject" required>
+                                        <option value="" selected disabled>Select a subject</option>
+                                        <option value="counseling">Spiritual Counseling</option>
+                                        <option value="programs">Program Information</option>
+                                        <option value="donation">Donation Questions</option>
+                                        <option value="volunteer">Volunteering</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="contactMessage" class="form-label">Message</label>
+                                    <textarea class="form-control" id="contactMessage" rows="4" required></textarea>
+                                </div>
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary">Send Message</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prayer Request Section -->
+    <section class="bg-primary text-white py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mb-4 mb-lg-0">
+                    <h3 class="mb-3">Need Prayer?</h3>
+                    <p class="mb-0">Our prayer team is ready to intercede for you. Submit your prayer request and we'll pray for you confidentially.</p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#prayerModal">Submit Prayer Request</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prayer Request Modal -->
+    <div class="modal fade" id="prayerModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Prayer Request</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="prayerForm">
+                        <div class="mb-3">
+                            <label for="prayerName" class="form-label">Your Name (Optional)</label>
+                            <input type="text" class="form-control" id="prayerName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="prayerRequest" class="form-label">Prayer Request *</label>
+                            <textarea class="form-control" id="prayerRequest" rows="4" required></textarea>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="prayerFollowup">
+                            <label class="form-check-label" for="prayerFollowup">
+                                I'd like someone to follow up with me about this request
+                            </label>
+                        </div>
+                        <div id="followupInfo" style="display: none;">
+                            <div class="mb-3">
+                                <label for="prayerEmail" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="prayerEmail">
+                            </div>
+                            <div class="mb-3">
+                                <label for="prayerPhone" class="form-label">Phone</label>
+                                <input type="tel" class="form-control" id="prayerPhone">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <img src="assets/img/logo-new-life-white.png" alt="New Life Foundation Logo" class="footer-logo">
+                    <p>New Life Foundation is a Christian ministry dedicated to helping individuals find purpose and hope through Jesus Christ in Batam, Indonesia.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <div class="footer-links">
+                        <h5>Quick Links</h5>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#programs">Programs</a></li>
+                            <li><a href="#testimonials">Testimonials</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="#donate">Donate</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <div class="footer-links">
+                        <h5>Ministries</h5>
+                        <ul>
+                            <li><a href="#">Recovery Program</a></li>
+                            <li><a href="#">Discipleship</a></li>
+                            <li><a href="#">Family Counseling</a></li>
+                            <li><a href="#">Youth Outreach</a></li>
+                            <li><a href="#">Prison Ministry</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="footer-links">
+                        <h5>Stay Connected</h5>
+                        <p>Subscribe to receive updates, devotionals, and ministry news.</p>
+                        <form class="mt-3">
+                            <div class="input-group mb-3">
+                                <input type="email" class="form-control" placeholder="Your Email" aria-label="Your Email" required>
+                                <button class="btn btn-primary" type="submit">Subscribe</button>
+                            </div>
+                        </form>
+                        <div class="mt-4">
+                            <h5>24/7 Prayer Line</h5>
+                            <p class="mb-1"><i class="fas fa-phone-alt me-2"></i> (+62) 123-456-7891</p>
+                            <p><i class="fas fa-pray me-2"></i> Available anytime</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row copyright">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">© 2025 New Life Foundation. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">
+                        <a href="#" class="text-white">Privacy Policy</a> |
+                        <a href="#" class="text-white">Financial Reports</a> |
+                        <a href="#" class="text-white">Contact</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Back to top button
+        const backToTopButton = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        backToTopButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Donation form interactions
+        const donationTypes = document.querySelectorAll('.donation-type');
+        donationTypes.forEach(type => {
+            type.addEventListener('click', function() {
+                donationTypes.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                document.getElementById('donationType').value = this.dataset.amount || 'one-time';
+            });
+        });
+
+        const donationAmounts = document.querySelectorAll('.donation-amount');
+        donationAmounts.forEach(amount => {
+            amount.addEventListener('click', function() {
+                if (this.dataset.amount !== 'custom') {
+                    document.getElementById('amount').value = this.dataset.amount;
+                }
+                donationAmounts.forEach(a => a.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Prayer request follow-up toggle
+        document.getElementById('prayerFollowup').addEventListener('change', function() {
+            document.getElementById('followupInfo').style.display = this.checked ? 'block' : 'none';
+        });
+
+        // Form submission handling
+        document.getElementById('donationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // In a real implementation, this would connect to a payment processor
+            const amount = document.getElementById('amount').value;
+            const type = document.getElementById('donationType').value;
+            const typeText = type === 'one-time' ? 'one-time' : type + ' recurring';
+            
+            alert(`Thank you for your ${typeText} donation of $${amount}! You will receive a confirmation email shortly.`);
+            this.reset();
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Your message has been sent successfully! Our team will respond within 24 hours.');
+            this.reset();
+        });
+
+        document.getElementById('prayerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for sharing your prayer request. Our prayer team will lift this up to the Lord.');
+            this.reset();
+            document.getElementById('followupInfo').style.display = 'none';
+            const modal = bootstrap.Modal.getInstance(document.getElementById('prayerModal'));
+            modal.hide();
+        });
+
+        // Initialize Bootstrap tooltips
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    </script>
+</body>
+</html>
