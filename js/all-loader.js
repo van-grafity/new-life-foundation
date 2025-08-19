@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("allResources");
 
   const basePath = window.location.hostname.includes("github.io") 
-    ? "/NEW-LIFE-FOUNDATION" 
+    ? "/new-life-foundation" 
     : "";
 
   fetch(`${basePath}/assets/resources.json`)
