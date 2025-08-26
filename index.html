@@ -1,802 +1,468 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yayasan New Life - Christian Ministry for Spiritual Renewal</title>
-    <meta name="description" content="Faith-based ministry helping lost souls find purpose through Christ. Offering spiritual guidance, counseling, and community support in Batam, Indonesia.">
-    
-    <!-- Preload critical resources -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
-    
-    <!-- CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <title>Yayasan New Life - Melayani dengan Iman dan Kasih</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary: #3a7bd5;
+            --secondary: #4cb1a7;
+            --accent: #f5a742;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --text: #333333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            padding-top: 80px;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: var(--dark);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 1rem !important;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 70%;
+            left: 15%;
+        }
+
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(58, 123, 213, 0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: #2d69c1;
+            border-color: #2d69c1;
+        }
+
+        .btn-donate {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            color: white;
+            font-weight: 600;
+        }
+
+        .btn-donate:hover {
+            background-color: #e5972a;
+            border-color: #e5972a;
+            color: white;
+        }
+
+        /* Banner Styles */
+        .banner {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 0;
+            margin-bottom: 3rem;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--accent);
+            margin-top: 10px;
+            border-radius: 2px;
+        }
+
+        .center-title::after {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .bg-light-custom {
+            background-color: #f8f9fa !important;
+        }
+
+        .ministry-img {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 0 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .footer-title {
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            position: relative;
+            font-size: 1.3rem;
+        }
+
+        .footer-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+            margin-top: 10px;
+        }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        .footer-link:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .social-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-newsletter {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
 </head>
-
-<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100">
-    <!-- Back to top button -->
-    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="assets/img/logo-yayasan-new-life-indonesia.png" alt="Yayasan New Life" class="img-fluid">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-cross"></i> Yayasan New Life
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#home">Beranda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">Tentang Kami</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#programs">Program</a>
+                        <a class="nav-link active" href="index.html">Home</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Resource
+                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown">
+                            About Us
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="resourcesDropdown">
-                            <li><a class="dropdown-item" href="news.html">News Article</a></li>
-                            <li><a class="dropdown-item" href="worshipedia.html">Worshipedia</a></li>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="about-structure.html">Struktur</a></li>
+                            <li><a class="dropdown-item" href="about-profile.html">Profile</a></li>
+                            <li><a class="dropdown-item" href="about-achievement.html">Achievement</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="programDropdown" role="button" data-bs-toggle="dropdown">
+                            Our Program
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="program-testimony.html">Kesaksian</a></li>
+                            <li><a class="dropdown-item" href="program-resource.html">Resource</a></li>
+                            <li><a class="dropdown-item" href="program-pantiasuhan.html">Pantiasuhan</a></li>
+                            <li><a class="dropdown-item" href="program-pemuritan.html">Pemuridan</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#testimonials">Kesaksian</a>
+                        <a class="nav-link" href="contact.html">Contact Us</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Kontak</a>
-                    </li>
-                    <li class="nav-item ms-lg-3" hidden>
-                        <a class="btn btn-primary" href="#donate">Donasi</a>
+                    <li class="nav-item ms-lg-2">
+                        <a class="btn btn-donate rounded-pill px-4" href="donate.html">Donate</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-
-    <!-- Hero Section -->
-    <section id="home" class="hero-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 mx-auto">
-                    <h1 class="hero-title">Yayasan New Life Indonesia</h1>
-                    <!-- <p class="hero-subtitle">"Sebab Aku ini mengetahui rancangan-rancangan apa yang ada pada-Ku mengenai kamu, demikianlah firman TUHAN, yaitu rancangan damai sejahtera dan bukan rancangan kecelakaan, untuk memberikan kepadamu hari depan yang penuh harapan." <span class="scripture">Yeremia 29:11</span></p> -->
-                    <p class="hero-subtitle">"HOLY SPIRIT PARTNER   |  GIVE THE BEST   |  NEVER GIVE UP"</p>
-                    
-                    <div class="d-flex justify-content-center gap-3 flex-wrap">
-                        <a href="#programs" class="btn btn-primary">Jelajahi Program Kami</a>
-                        <a href="#donate" class="btn btn-secondary">Dukung Misi Kami</a>
-                    </div>
-                </div>
+    <main>
+        <section class="banner">
+            <div class="container text-center">
+                <h1 class="display-4 fw-bold mb-3">Melayani dengan Iman dan Kasih</h1>
+                <p class="lead mb-4">Bergabunglah dengan kami dalam perjalanan rohani untuk menemukan kasih dan tujuan hidup dalam Kristus</p>
+                <a href="contact.html" class="btn btn-light rounded-pill px-4 py-2 fw-medium me-2">Bergabung Sekarang</a>
+                <a href="donate.html" class="btn btn-accent rounded-pill px-4 py-2 fw-medium ms-2" style="background-color: var(--accent); color: white;">Donasi</a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Scripture Banner -->
-    <section class="bg-primary text-white py-4" hidden>
-        <div class="container text-center">
-            <p class="mb-0 lead"><em>"Jadi siapa yang ada di dalam Kristus, ia adalah ciptaan baru. Yang lama sudah berlalu, sesungguhnya yang baru sudah datang!"</em> <span class="scripture">2 Korintus 5:17</span></p>
-        </div>
-    </section>
-
-    <!-- Programs Section -->
-    <section id="programs" class="section">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <h2 class="section-title">Program Pelayanan Kami</h2>
-                    <p class="section-subtitle">Membimbing individu menuju pembaruan rohani dan tujuan hidup melalui program berpusat pada Kristus</p>
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-md-4">
-                    <div class="card program-card h-100">
-                        <div class="card-body text-center p-4">
-                            <div class="program-icon">
-                                <i class="fas fa-bible"></i>
+        <section class="container mb-5">
+            <h2 class="text-center section-title center-title">Program Pelayanan Kami</h2>
+            <p class="text-center mb-5">Kami menyediakan berbagai program kerohanian untuk membangun iman dan komunitas</p>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 text-center p-4">
+                        <img src="https://images.unsplash.com/photo-1562670630-6b73f5c3913f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Ibadah Minggu" class="ministry-img">
+                        <div class="card-body">
+                            <div class="service-icon">
+                                <i class="bi bi-people-fill"></i>
                             </div>
-                            <h4>Konseling Alkitabiah</h4>
-                            <p>Sesi pribadi dan kelompok yang berakar pada Kitab Suci untuk membantu individu mengatasi tantangan hidup melalui hikmat dan kasih karunia Allah.</p>
-                            <div class="prayer">
-                                <p>"Firman-Mu itu pelita bagi kakiku dan terang bagi jalanku." <span class="scripture">Mazmur 119:105</span></p>
-                            </div>
-                            <a href="#" class="btn btn-outline-primary mt-2">Pelajari Lebih Lanjut</a>
+                            <h4 class="fw-bold">Ibadah Minggu</h4>
+                            <p>Setiap Minggu pukul 09.00 WIB dan 17.00 WIB dengan khotbah yang memberkati dan penyembahan yang menyentuh hati.</p>
+                            <a href="pemuridan.html" class="btn btn-outline-primary mt-auto">Selengkapnya</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card program-card h-100">
-                        <div class="card-body text-center p-4">
-                            <div class="program-icon">
-                                <i class="fas fa-hands-praying"></i>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 text-center p-4">
+                        <img src="https://images.unsplash.com/photo-1542409236-687f6adf52c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Pemuridan" class="ministry-img">
+                        <div class="card-body">
+                            <div class="service-icon">
+                                <i class="bi bi-book-half"></i>
                             </div>
-                            <h4>Pelatihan Pemuridan</h4>
-                            <p>Studi Alkitab mendalam dan program pembinaan untuk bertumbuh dalam iman dan mengembangkan hubungan yang lebih dekat dengan Yesus Kristus.</p>
-                            <div class="prayer">
-                                <p>"Karena itu pergilah, jadikanlah semua bangsa murid-Ku..." <span class="scripture">Matius 28:19</span></p>
-                            </div>
-                            <a href="#" class="btn btn-outline-primary mt-2">Pelajari Lebih Lanjut</a>
+                            <h4 class="fw-bold">Pemuridan</h4>
+                            <p>Program pendalaman alkitab dan pertumbuhan rohani untuk segala usia, dari anak-anak hingga lansia.</p>
+                            <a href="pemuridan.html" class="btn btn-outline-primary mt-auto">Selengkapnya</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card program-card h-100">
-                        <div class="card-body text-center p-4">
-                            <div class="program-icon">
-                                <i class="fas fa-church"></i>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 text-center p-4">
+                        <img src="https://images.unsplash.com/photo-1582211597936-3c6b31e5d3b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Pelayanan Sosial" class="ministry-img">
+                        <div class="card-body">
+                            <div class="service-icon">
+                                <i class="bi bi-heart-fill"></i>
                             </div>
-                            <h4>Pelayanan Pemulihan</h4>
-                            <p>Sistem dukungan berpusat pada Kristus bagi mereka yang berjuang dengan kecanduan, depresi, atau masalah hidup lainnya.</p>
-                            <div class="prayer">
-                                <p>"Ia menyembuhkan orang yang patah hati dan membalut luka-luka mereka." <span class="scripture">Mazmur 147:3</span></p>
+                            <h4 class="fw-bold">Pelayanan Sosial</h4>
+                            <p>Memberikan bantuan dan dukungan kepada masyarakat sekitar melalui berbagai program sosial dan kemanusiaan.</p>
+                            <a href="pantiasuhan.html" class="btn btn-outline-primary mt-auto">Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 text-center p-4">
+                        <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Paduan Suara" class="ministry-img">
+                        <div class="card-body">
+                            <div class="service-icon">
+                                <i class="bi bi-music-note-beamed"></i>
                             </div>
-                            <a href="#" class="btn btn-outline-primary mt-2">Pelajari Lebih Lanjut</a>
+                            <h4 class="fw-bold">Paduan Suara</h4>
+                            <p>Melayani melalui pujian dan penyembahan dengan paduan suara yang terdiri dari berbagai kelompok umur.</p>
+                            <a href="program-testimony.html" class="btn btn-outline-primary mt-auto">Selengkapnya</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="section about-section">
-        <div class="container">
+        <section class="container mb-5">
             <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <h2 class="section-title">Misi & Visi Kami</h2>
-                    <p class="lead">Membawa kasih dan transformasi Allah ke Batam sejak 2015</p>
-                    <p>Yayasan New Life adalah sebuah pelayanan Kristen yang didedikasikan untuk membantu individu menemukan tujuan yang diberikan Allah melalui bimbingan rohani, konseling Alkitabiah, dan dukungan komunitas yang penuh kasih.</p>
-                    <p>Kami percaya bahwa melalui Yesus Kristus, setiap orang dapat mengalami transformasi sejati dan menjalani hidup yang penuh harapan, terlepas dari masa lalu atau keadaan saat ini.</p>
-                    <div class="row mt-4">
-                        <div class="col-md-6">
-                            <ul class="list-unstyled">
-                                <li class="mb-2"><i class="fas fa-cross text-primary me-2"></i> Pendekatan berpusat pada Kristus</li>
-                                <li class="mb-2"><i class="fas fa-heart text-primary me-2"></i> Perawatan penuh kasih</li>
-                                <li class="mb-2"><i class="fas fa-hands-helping text-primary me-2"></i> Dukungan praktis</li>
+                <div class="col-lg-6">
+                    <h2 class="section-title">Tentang Kami</h2>
+                    <p class="lead">Yayasan New Life telah melayani masyarakat sejak tahun 1985 dengan komitmen untuk menyebarkan kasih Kristus.</p>
+                    <p>Kami adalah komunitas orang percaya yang berkomitmen untuk mengikuti teladan Yesus Kristus dalam melayani, mengajar, dan memberkati sesama. Dengan berbagai program kerohanian dan sosial, kami berusaha menjangkau semua kalangan masyarakat.</p>
+                    <div class="d-flex mt-4">
+                        <a href="profile.html" class="btn btn-primary rounded-pill px-4 me-3">Tentang Kami</a>
+                        <a href="contact.html" class="btn btn-outline-primary rounded-pill px-4">Kontak Kami</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 position-relative">
+                    <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" alt="Yayasan New Life" class="img-fluid rounded-3 shadow">
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-light-custom py-5 mb-5">
+            <div class="container">
+                <h2 class="text-center section-title center-title">Visi & Misi</h2>
+                <p class="text-center mb-5">Pedoman pelayanan kami untuk menjadi berkat bagi banyak orang</p>
+                <div class="row g-4 mt-3">
+                    <div class="col-md-6">
+                        <div class="card h-100 p-4">
+                            <h3 class="fw-bold text-primary">Visi</h3>
+                            <p>Menjadi komunitas orang percaya yang relevan, transformatif, dan menjadi berkat bagi kota dan bangsa melalui nilai-nilai Kerajaan Allah.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card h-100 p-4">
+                            <h3 class="fw-bold text-primary">Misi</h3>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item border-0 ps-0">Memuridkan orang percaya untuk bertumbuh dalam iman dan karakter Kristus</li>
+                                <li class="list-group-item border-0 ps-0">Membangun komunitas yang peduli dan saling melayani</li>
+                                <li class="list-group-item border-0 ps-0">Memberitakan Injil melalui perkataan dan perbuatan</li>
+                                <li class="list-group-item border-0 ps-0">Berkontribusi positif bagi pembangunan masyarakat</li>
                             </ul>
                         </div>
-                        <div class="col-md-6">
-                            <ul class="list-unstyled">
-                                <li class="mb-2"><i class="fas fa-bible text-primary me-2"></i> Bimbingan berbasis Alkitab</li>
-                                <li class="mb-2"><i class="fas fa-pray text-primary me-2"></i> Pelayanan doa</li>
-                                <li class="mb-2"><i class="fas fa-door-open text-primary me-2"></i> Terbuka untuk semua</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <a href="#contact" class="btn btn-primary mt-3">Bergabunglah dengan Komunitas Kami</a>
-                </div>
-                <div class="col-lg-6">
-                    <div class="position-relative">
-                        <!-- <img src="https://images.unsplash.com/photo-1682685797303-0ad51eb23e13?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxfHx8ZW58MHx8fHx8" alt="Yayasan New Life Ministry" class="img-fluid rounded shadow-lg"> -->
-                        <img src="assets/img/logo-new-life-white.jpg" alt="Yayasan New Life Ministry" class="img-fluid rounded shadow-lg">
-                        <div class="position-absolute bottom-0 start-0 bg-primary text-white p-3 m-3 rounded">
-                            <h5 class="mb-0">"Diubahkan oleh pembaruan pikiranmu"</h5>
-                            <p class="mb-0"><span class="scripture">Roma 12:2</span></p>
-                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Impact Stats -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md-3 col-6 mb-4">
-                    <div class="counter">
-                        <h2 class="display-4 text-primary">1,200+</h2>
-                        <p class="lead">Hidup yang Diubahkan</p>
+        <section class="container mb-5">
+            <h2 class="text-center section-title center-title">Jadwal Ibadah</h2>
+            <p class="text-center mb-5">Bergabunglah dengan kami dalam ibadah dan persekutuan</p>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card text-center p-4 h-100">
+                        <div class="service-icon">
+                            <i class="bi bi-sun"></i>
+                        </div>
+                        <h4 class="fw-bold">Ibadah Minggu Pagi</h4>
+                        <p class="text-muted">Setiap Minggu</p>
+                        <p class="fw-bold">09.00 - 11.00 WIB</p>
+                        <p>Ibadah umum untuk seluruh jemaat dengan pengajaran yang memberkati</p>
                     </div>
                 </div>
-                <div class="col-md-3 col-6 mb-4">
-                    <div class="counter">
-                        <h2 class="display-4 text-primary">75+</h2>
-                        <p class="lead">Relawan yang Berdedikasi</p>
+                <div class="col-md-4">
+                    <div class="card text-center p-4 h-100">
+                        <div class="service-icon">
+                            <i class="bi bi-moon"></i>
+                        </div>
+                        <h4 class="fw-bold">Ibadah Minggu Sore</h4>
+                        <p class="text-muted">Setiap Minggu</p>
+                        <p class="fw-bold">17.00 - 19.00 WIB</p>
+                        <p>Ibadah dengan nuansa lebih santai dan intim, cocok untuk keluarga muda</p>
                     </div>
                 </div>
-                <div class="col-md-3 col-6 mb-4">
-                    <div class="counter">
-                        <h2 class="display-4 text-primary">8+</h2>
-                        <p class="lead">Tahun Melayani</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-6 mb-4">
-                    <div class="counter">
-                        <h2 class="display-4 text-primary">50+</h2>
-                        <p class="lead">Studi Alkitab Mingguan</p>
+                <div class="col-md-4">
+                    <div class="card text-center p-4 h-100">
+                        <div class="service-icon">
+                            <i class="bi bi-stars"></i>
+                        </div>
+                        <h4 class="fw-bold">Persekutuan Doa</h4>
+                        <p class="text-muted">Setiap Rabu</p>
+                        <p class="fw-bold">19.00 - 20.30 WIB</p>
+                        <p>Persekutuan doa untuk kebutuhan jemaat dan bangsa</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Testimonials -->
-    <section id="testimonials" class="section testimonial-section">
+    <footer>
         <div class="container">
             <div class="row">
-                <div class="col-12 text-center">
-                    <h2 class="section-title text-white">Hidup yang Diubahkan</h2>
-                    <p class="section-subtitle text-white">Dengarkan dari mereka yang menemukan kehidupan baru dalam Kristus melalui pelayanan kami</p>
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-md-4 mb-4">
-                    <div class="testimonial-card h-100">
-                        <div class="text-center mb-4">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John's Testimony" class="testimonial-img">
-                        </div>
-                        <div class="text-center">
-                            <h5 class="text-white">John Doe</h5>
-                            <p class="text-muted">Pecandu yang Telah Pulih, Kini Pemimpin Pelayanan</p>
-                            <p class="text-white">"Saya terjebak dalam kecanduan selama 15 tahun. Melalui program pemulihan New Life dan kasih karunia Allah, saya telah bersih selama 3 tahun dan sekarang membantu orang lain menemukan kebebasan dalam Kristus."</p>
-                            <div class="text-warning mb-3">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <button class="btn btn-sm btn-outline-light" data-bs-toggle="modal" data-bs-target="#testimonial1">Baca Cerita Lengkap</button>
-                        </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="footer-title">Yayasan New Life</h5>
+                    <p>Jalan Kebenaran No. 123<br>Batam, Indonesia<br>Phone: (021) 7654321<br>Email: info@gerejakasihkarunia.org</p>
+                    <div class="mt-3">
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-whatsapp"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter-x"></i></a>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="testimonial-card h-100">
-                        <div class="text-center mb-4">
-                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sarah's Testimony" class="testimonial-img">
-                        </div>
-                        <div class="text-center">
-                            <h5 class="text-white">Sarah Lim</h5>
-                            <p class="text-muted">Dari Depresi ke Sukacita</p>
-                            <p class="text-white">"Setelah perceraian saya, saya jatuh ke dalam depresi yang dalam. Konseling Alkitabiah di New Life membantu saya menemukan nilai diri saya dalam Kristus dan membangun kembali hidup saya berdasarkan janji-janji Allah."</p>
-                            <div class="text-warning mb-3">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <button class="btn btn-sm btn-outline-light" data-bs-toggle="modal" data-bs-target="#testimonial2">Baca Cerita Lengkap</button>
-                        </div>
-                    </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="footer-title">Menu Utama</h5>
+                    <a href="index.html" class="footer-link">Home</a>
+                    <a href="profile.html" class="footer-link">About Us</a>
+                    <a href="kesaksian.html" class="footer-link">Our Program</a>
+                    <a href="contact.html" class="footer-link">Contact Us</a>
+                    <a href="donate.html" class="footer-link">Donate</a>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="testimonial-card h-100">
-                        <div class="text-center mb-4">
-                            <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="David's Testimony" class="testimonial-img">
-                        </div>
-                        <div class="text-center">
-                            <h5 class="text-white">David Wong</h5>
-                            <p class="text-muted">Pengusaha yang Telah Ditebus</p>
-                            <p class="text-white">"Saya memiliki kesuksesan tetapi tanpa tujuan. Melalui pembinaan di New Life, saya menemukan rencana Allah untuk hidup saya dan sekarang menggunakan bisnis saya untuk melayani kerajaan-Nya."</p>
-                            <div class="text-warning mb-3">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                            <button class="btn btn-sm btn-outline-light" data-bs-toggle="modal" data-bs-target="#testimonial3">Baca Cerita Lengkap</button>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="footer-title">Program Kami</h5>
+                    <a href="pemuridan.html" class="footer-link">Pemuridan</a>
+                    <a href="pantiasuhan.html" class="footer-link">Pantiasuhan</a>
+                    <a href="kesaksian.html" class="footer-link">Kesaksian</a>
+                    <a href="resource.html" class="footer-link">Resource</a>
+                    <a href="program-testimony.html" class="footer-link">Testimoni</a>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="footer-title">Informasi</h5>
+                    <p class="footer-link">Minggu: 09.00 & 17.00 WIB</p>
+                    <p class="footer-link">Selasa: Doa Malam 19.00 WIB</p>
+                    <p class="footer-link">Kamis: Pemuridan 16.00 WIB</p>
+                    <p class="footer-link">Sabtu: Youth 18.00 WIB</p>
+                    <div class="footer-newsletter mt-3">
+                        <h6>Newsletter</h6>
+                        <div class="input-group mt-2">
+                            <input type="email" class="form-control form-control-sm" placeholder="Email Anda">
+                            <button class="btn btn-primary btn-sm" type="button">Subscribe</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Testimonial Modals -->
-    <div class="modal fade" id="testimonial1" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Perjalanan John Menuju Pemulihan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-4 text-center">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John" class="img-fluid rounded-circle mb-3" style="width: 150px;">
-                            <h4>John Doe</h4>
-                            <p class="text-muted">Pecandu yang Telah Pulih, Kini Pemimpin Pelayanan</p>
-                        </div>
-                        <div class="col-md-8">
-                            <p>"Saya terjebak dalam kecanduan selama 15 tahun, kehilangan segalanya, dan hidup di jalanan. Suatu hari, seorang relawan dari Yayasan New Life mengundang saya ke program pemulihan mereka. Awalnya, saya menolak, tetapi kasih mereka yang gigih menembus hati saya yang keras.</p>
-                            <p>Melalui program berpusat pada Kristus mereka, saya menemukan bahwa kebutuhan sejati saya bukan hanya berhenti menggunakan narkoba, tetapi mengisi kekosongan yang hanya bisa diisi oleh Allah. Studi Alkitab dan konseling pribadi membantu saya memahami kasih Allah untuk pertama kalinya.</p>
-                            <p class="scripture">"Jadi siapa yang ada di dalam Kristus, ia adalah ciptaan baru. Yang lama sudah berlalu, sesungguhnya yang baru sudah datang!" 2 Korintus 5:17</p>
-                            <p>Sekarang, saya telah bersih selama 3 tahun dan melayani sebagai pemimpin di program yang menyelamatkan hidup saya. Saya menikah, bersatu kembali dengan keluarga saya, dan yang terpenting, saya memiliki hubungan hidup dengan Yesus Kristus."</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="testimonial2" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Perjalanan Sarah Menuju Penyembuhan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-4 text-center">
-                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sarah" class="img-fluid rounded-circle mb-3" style="width: 150px;">
-                            <h4>Sarah Lim</h4>
-                            <p class="text-muted">Dari Depresi ke Sukacita</p>
-                        </div>
-                        <div class="col-md-8">
-                            <p>"Setelah suami saya meninggalkan saya untuk wanita lain, saya jatuh ke dalam depresi yang dalam. Saya tidak bisa makan, tidur, atau berfungsi secara normal. Seorang teman membawa saya ke kelompok dukungan mingguan Yayasan New Life untuk pernikahan yang hancur.</p>
-                            <p>Konseling Alkitabiah membantu saya memproses rasa sakit saya dalam terang kebenaran Allah. Saya belajar bahwa nilai diri saya tidak ditentukan oleh status pernikahan saya, tetapi dengan menjadi anak Allah. Studi Alkitab wanita menjadi tali penyelamat saya saat saya menemukan kembali kasih dan tujuan Allah untuk hidup saya.</p>
-                            <p class="scripture">"TUHAN dekat dengan orang-orang yang patah hati dan menyelamatkan orang-orang yang remuk jiwanya." Mazmur 34:18</p>
-                            <p>Saat ini, saya memimpin kelompok dukungan untuk wanita lain yang mengalami perceraian. Meskipun rasa sakit itu nyata, Allah menggunakannya untuk menarik saya lebih dekat kepada-Nya dan memberi saya pelayanan penghiburan bagi orang lain."</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="testimonial3" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Kebangkitan Rohani David</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-4 text-center">
-                            <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="David" class="img-fluid rounded-circle mb-3" style="width: 150px;">
-                            <h4>David Wong</h4>
-                            <p class="text-muted">Pengusaha yang Telah Ditebus</p>
-                        </div>
-                        <div class="col-md-8">
-                            <p>"Di luar, saya memiliki segalanya - bisnis yang sukses, rumah yang indah, dan keamanan finansial. Tetapi di dalam, saya merasa kosong dan tanpa arah. Saya mulai bertanya, 'Apakah ini semua yang ada dalam hidup?'</p>
-                            <p>Seorang rekan bisnis mengundang saya ke kelompok pembinaan pria di New Life. Melalui studi Alkitab dengan pengusaha Kristen lainnya, saya menyadari bahwa saya telah mengejar kesuksesan dengan mengorbankan jiwa saya. Saya menyerahkan hidup saya kepada Kristus dan mulai menyelaraskan praktik bisnis saya dengan prinsip-prinsip Alkitab.</p>
-                            <p class="scripture">"Apa gunanya seseorang memperoleh seluruh dunia, tetapi kehilangan nyawanya?" Markus 8:36</p>
-                            <p>Sekarang saya menjalankan bisnis saya sebagai sebuah pelayanan, menyediakan pekerjaan bagi lulusan program pemulihan New Life. Keluarga saya telah datang kepada iman, dan kami tumbuh bersama dalam Kristus. Untuk pertama kalinya, hidup saya memiliki tujuan kekal."</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <section class="py-5 bg-dark text-white position-relative">
-        <div class="container text-center">
-            <!-- Judul -->
-            <h2 class="mb-3 display-5 fw-bold">🎥 Tonton Video Kami</h2>
-            <p class="lead mb-5 text-light opacity-75">
-            Pelajari lebih lanjut tentang misi kami dan bagaimana kami mengubah hidup melalui Kristus.
-            </p>
-
-            <!-- Video -->
-            <div class="ratio ratio-16x9 mb-4 shadow-lg rounded-4 overflow-hidden">
-            <iframe class="border-0"
-                src="https://www.youtube.com/embed/oUvLiEbrS3E?si=2aLY2LeeeONG-RT5"
-                title="YouTube video" 
-                allowfullscreen>
-            </iframe>
-            </div>
-
-            <!-- CTA Button -->
-            <a href="https://youtu.be/oUvLiEbrS3E?si=2aLY2LeeeONG-RT5" 
-            class="btn btn-lg btn-primary px-4 py-2 shadow-sm rounded-pill" 
-            target="_blank">
-            <i class="bi bi-play-circle-fill me-2"></i> Tonton Sekarang
-            </a>
-        </div>
-
-        <!-- Background Gradient -->
-        <div class="position-absolute top-0 start-0 w-100 h-100"
-            style="background: linear-gradient(135deg, rgba(0,0,0,0.5), rgba(33,37,41,0.9)); z-index:-1;">
-        </div>
-    </section>
-
-    <!-- Donation Section -->
-    <section id="donate" class="section bg-light">
-        <div class="container">
-            <div class="row">
-            <!-- Informasi Donasi -->
-            <div class="col-lg-6 mb-4 mb-lg-0">
-                <h2 class="section-title">Bergabunglah Bersama Kami</h2>
-                <p class="lead">Dukungan Anda mengubah hidup melalui Kristus</p>
-                <p>Donasi Anda yang murah hati memungkinkan kami untuk melanjutkan pelayanan penting kami dalam membawa harapan kepada yang putus asa dan membantu orang menemukan kehidupan baru dalam Yesus Kristus.</p>
-                
-                <div class="accordion mt-4" id="donationImpact">
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#impact1">
-                        Bagaimana Donasi Anda Membantu
-                    </button>
-                    </h2>
-                    <div id="impact1" class="accordion-collapse collapse show" data-bs-parent="#donationImpact">
-                    <div class="accordion-body">
-                        <ul>
-                        <li>Makan selama seminggu bagi peserta program</li>
-                        <li>Sesi konseling bagi seseorang dalam krisis</li>
-                        <li>Satu bulan pelatihan discipleship</li>
-                        <li>Acara jangkauan untuk membagikan Injil</li>
-                        </ul>
-                    </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#impact2">
-                        Pengelolaan Keuangan Kami
-                    </button>
-                    </h2>
-                    <div id="impact2" class="accordion-collapse collapse" data-bs-parent="#donationImpact">
-                    <div class="accordion-body">
-                        <p>85% dari semua donasi digunakan langsung untuk pelayanan, hanya 15% untuk administrasi.</p>
-                        <p>Laporan keuangan dapat diminta kapan saja.</p>
-                    </div>
-                    </div>
-                </div>
-                </div>
-            </div>
-
-            <!-- Nomor Rekening / VA -->
-            <div class="col-lg-6">
-                <div class="card shadow-sm text-center">
-                <div class="card-body p-4">
-                    <h4 class="mb-4">Dukung Yayasan New Life</h4>
-                    
-                    <div class="mb-4">
-                    <h5>BCA</h5>
-                    <p class="fs-5 fw-bold text-primary">1234567890</p>
-                    <p>a.n <strong>Yayasan New Life Indonesia</strong></p>
-                    </div>
-
-                    <div class="mb-4">
-                    <h5>Mandiri</h5>
-                    <p class="fs-5 fw-bold text-primary">9876543210</p>
-                    <p>a.n <strong>Yayasan New Life Indonesia</strong></p>
-                    </div>
-
-                    <div class="mb-4">
-                    <h5>Virtual Account (OVO / GoPay / Dana)</h5>
-                    <p class="fs-5 fw-bold text-primary">8808 1122 3344 55</p>
-                    </div>
-
-                    <p class="small text-muted">Setelah transfer, Anda dapat konfirmasi melalui <a href="#contact">halaman kontak</a> atau WhatsApp admin.</p>
-                </div>
-                </div>
-            </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- All Resource News and Worship -->
-    <section id="news" class="section bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <h2 class="section-title">Berita & Kegiatan Terkini</h2>
-                    <p class="section-subtitle">Update terbaru dari pelayanan dan kegiatan Yayasan New Life</p>
-                </div>
-            </div>
-            
-            <div class="row mt-4">
-                <!-- News Item 1 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card news-card h-100">
-                        <div class="position-relative">
-                            <img src="https://images.unsplash.com/photo-1605526124290-10b9f8736021?q=80&w=1074&auto=format&fit=crop" 
-                                class="card-img-top" alt="News Image">
-                            <div class="news-date-badge">
-                                <span class="month">Feb</span>
-                                <span class="year">2024</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Temu Usaha Distribusi Tidak Langsung</h5>
-                            <p class="card-text">Kegiatan kolaborasi dengan mitra usaha dalam rangka pengembangan pelayanan sosial.</p>
-                            <a href="resource/news.html?type=news&id=1" class="btn btn-outline-primary stretched-link">Baca Selengkapnya</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- News Item 2 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card news-card h-100">
-                        <div class="position-relative">
-                            <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&w=800" 
-                                class="card-img-top" alt="News Image">
-                            <div class="news-date-badge">
-                                <span class="month">Mar</span>
-                                <span class="year">2024</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Rilis Olsera x Kemendag</h5>
-                            <p class="card-text">Kolaborasi dengan Kementerian Perdagangan untuk program pemberdayaan masyarakat.</p>
-                            <a href="resource/news.html?type=news&id=2" class="btn btn-outline-primary stretched-link">Baca Selengkapnya</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- News Item 3 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card news-card h-100">
-                        <div class="position-relative">
-                            <img src="https://images.unsplash.com/photo-1682685797303-0ad51eb23e13?auto=format&fit=crop&w=800" 
-                                class="card-img-top" alt="News Image">
-                            <div class="news-date-badge">
-                                <span class="month">Jul</span>
-                                <span class="year">2023</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Olsera x Martha Tilaar</h5>
-                            <p class="card-text">Kerjasama pelatihan kewirausahaan untuk ibu-ibu rumah tangga.</p>
-                            <a href="resource/worshipedia.html?type=worshipedia&id=1" class="btn btn-outline-primary stretched-link">Baca Selengkapnya</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-4">
-                <li class="nav-item">
-                    <a class="nav-link" href="resource/all.html">Resources</a>
-                </li>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <h2 class="section-title">Kami Siap Membantu Anda</h2>
-                    <p class="section-subtitle">Hubungi kami untuk bimbingan rohani, konseling, atau untuk mempelajari lebih lanjut tentang program kami</p>
-                </div>
-            </div>
-            
-            <div class="row mt-4">
-                <div class="col-lg-4 mb-4 mb-lg-0">
-                    <div class="contact-info text-center">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <h4>Our Location</h4>
-                        <p>Ruko Central Sukajadi, B1 No. 12B<br>Sukajadi, Batam Kota, Batam City<br>Riau Islands, Indonesia</p>
-                        <a href="#map" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#mapModal">View Map</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-4 mb-lg-0">
-                    <div class="contact-info text-center">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <h4>Hubungi Kami</h4>
-                        <p>Main: (+62) 819-0817-7771<br>Helpline: (+62) 819-0817-7772</p>
-                        <p>Sen-Sab: 9am-5pm<br>Min: 9am-1pm</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="contact-info text-center">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <h4>Hubungi Kami</h4>
-                        <p>info@yayasannewlife.id<br>support@yayasannewlife.id</p>
-                        <p>Balasan dalam 24 jam</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-5" id="map">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <div class="map-container shadow-sm rounded overflow-hidden">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127650.684863273!2d103.88093619726563!3d1.0993588999999946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d98f0050da79d3%3A0x4c45f123ebbd0462!2sGPIA%20New%20Life!5e0!3m2!1sen!2sid!4v1753527676031!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="card shadow-sm h-100">
-                        <div class="card-body p-4">
-                            <h4 class="mb-4">Kirim Pesan</h4>
-                            <form id="contactForm">
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="contactName" class="form-label">Nama</label>
-                                        <input type="text" class="form-control" id="contactName" required>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="contactEmail" class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="contactEmail" required>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="contactPhone" class="form-label">Telepon (Opsional)</label>
-                                    <input type="tel" class="form-control" id="contactPhone">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="contactSubject" class="form-label">Subjek</label>
-                                    <select class="form-select" id="contactSubject" required>
-                                        <option value="" selected disabled>Select a subject</option>
-                                        <option value="counseling">Konseling Spiritual</option>
-                                        <option value="programs">Informasi Program</option>
-                                        <option value="donation">Pertanyaan Donasi</option>
-                                        <option value="volunteer">Relawan</option>
-                                        <option value="other">Lainnya</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                     <label for="contactMessage" class="form-label">Pesan</label>
-                                    <textarea class="form-control" id="contactMessage" rows="4" required></textarea>
-                                </div>
-                                <div class="d-grid">
-                                    <button type="submit" class="btn btn-primary">Kirim Pesan</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Prayer Request Section -->
-    <section class="bg-primary text-white py-5" hidden>
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-8 mb-4 mb-lg-0">
-                    <h3 class="mb-3">Butuh Doa?</h3>
-                    <p class="mb-0">Tim doa kami siap untuk mendoakan Anda. Kirimkan permohonan doa Anda dan kami akan mendoakan Anda secara rahasia.</p>
-                </div>
-                <div class="col-lg-4 text-lg-end">
-                    <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#prayerModal">
-                        <i class="fas fa-pray me-2"></i> Kirim Permohonan Doa
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Prayer Request Modal -->
-    <div class="modal fade" id="prayerModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Kirim Permohonan Doa</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="prayerForm">
-                        <div class="mb-3">
-                            <label for="prayerName" class="form-label">Nama Anda (Opsional)</label>
-                            <input type="text" class="form-control" id="prayerName">
-                        </div>
-                        <div class="mb-3">
-                            <label for="prayerRequest" class="form-label">Permohonan Doa *</label>
-                            <textarea class="form-control" id="prayerRequest" rows="4" required></textarea>
-                        </div>
-                        <div class="form-check mb-3">
-                            <input class="form-check-input" type="checkbox" id="prayerFollowup">
-                            <label class="form-check-label" for="prayerFollowup">
-                                Saya ingin seseorang menghubungi saya untuk menindaklanjuti permohonan ini
-                            </label>
-                        </div>
-                        <div id="followupInfo" style="display: none;">
-                            <div class="mb-3">
-                                <label for="prayerEmail" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="prayerEmail">
-                            </div>
-                            <div class="mb-3">
-                                <label for="prayerPhone" class="form-label">Telepon (Opsional)</label>
-                                <input type="tel" class="form-control" id="prayerPhone">
-                            </div>
-                        </div>
-                        <div class="d-grid">
-                            <button type="submit" class="btn btn-primary">Kirim Permohonan Doa</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4 mb-lg-0">
-                    <img src="assets/img/logo-new-life-white.png" alt="Yayasan New Life" class="footer-logo">
-                    <p class="text-white">Yayasan New Life adalah pelayanan Kristen yang didedikasikan untuk membantu individu menemukan tujuan dan harapan melalui Yesus Kristus di Batam, Indonesia.</p>
-                    <div class="social-icons mt-4">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-                    <div class="footer-links">
-                        <h5>Menu</h5>
-                        <ul>
-                            <li><a href="#home">Beranda</a></li>
-                            <li><a href="#about">Tentang Kami</a></li>
-                            <li><a href="#programs">Program</a></li>
-                            <li><a href="#testimonials">Kesaksian</a></li>
-                            <li><a href="#contact">Kontak</a></li>
-                            <li><a href="#donate">Dukung</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-                    <div class="footer-links">
-                        <h5>Pelayanan Kami</h5>
-                        <ul>
-                            <li><a href="#">Program Pemulihan</a></li>
-                            <li><a href="#">Pembinaan Discipleship</a></li>
-                            <li><a href="#">Konseling Keluarga</a></li>
-                            <li><a href="#">Jangkauan Pemuda</a></li>
-                            <li><a href="#">Pelayanan Penjara</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12">
-                    <div class="footer-links">
-                        <h5>Berlangganan Newsletter</h5>
-                         <p class="text-white">Daftar untuk menerima pembaruan, renungan, dan berita pelayanan.</p>
-                        <form class="mt-3">
-                            <div class="input-group mb-3">
-                                <input type="email" class="form-control" placeholder="Email Anda" aria-label="Email Anda" required>
-                                <button class="btn btn-primary" type="submit"><i class="fas fa-paper-plane"></i></button>
-                            </div>
-                        </form>
-                        <div class="mt-4">
-                             <h5>24/7 Layanan Doa</h5>
-                            <p class="mb-1"><i class="fas fa-phone-alt me-2"></i> (+62) 819-0817-7772</p>
-                            <p><i class="fas fa-pray me-2"></i> Tersedia setiap saat</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row copyright">
-                <div class="col-md-6 text-center text-md-start">
-                    <p class="mb-0">© 2025 Yayasan New Life. Hak Cipta Dilindungi. Developed by <a href="https://github.com/van-grafity" class="text-white">Ivan Suhendra</a></p>
-                </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <p class="mb-0">
-                        <a href="#" class="text-white">Kebijakan Privasi</a> |
-                        <a href="#" class="text-white">Laporan Keuangan</a> |
-                        <a href="#" class="text-white">Kontak</a>
-                    </p>
-                </div>
+            <div class="text-center copyright">
+                <p>© 2025 Yayasan New Life. All Rights Reserved. | <a href="#" class="text-white">Privacy Policy</a> | <a href="#" class="text-white">Terms of Service</a></p>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

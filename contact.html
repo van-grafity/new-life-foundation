@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hubungi Kami - Yayasan New Life</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary: #3a7bd5;
+            --secondary: #4cb1a7;
+            --accent: #f5a742;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --text: #333333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            padding-top: 80px;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: var(--dark);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            padding: 15px 0;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 1rem !important;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 70%;
+            left: 15%;
+        }
+
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(58, 123, 213, 0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: #2d69c1;
+            border-color: #2d69c1;
+        }
+
+        .btn-donate {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .btn-donate:hover {
+            background-color: #e5972a;
+            border-color: #e5972a;
+            color: white;
+        }
+
+        /* Banner Styles */
+        .banner {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 0;
+            margin-bottom: 3rem;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--accent);
+            margin-top: 10px;
+            border-radius: 2px;
+        }
+
+        .center-title::after {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        /* Map Styles */
+        .map-container {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 400px;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Form Styles */
+        .form-control {
+            border-radius: 8px;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.25rem rgba(58, 123, 213, 0.25);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 0 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .footer-title {
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            position: relative;
+            font-size: 1.3rem;
+        }
+
+        .footer-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+            margin-top: 10px;
+        }
+        
+        .footer-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        .footer-link:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .social-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .office-hours {
+            background-color: rgba(58, 123, 213, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .office-hours li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar"></div>
+    <main>
+        <section class="banner">
+            <div class="container text-center">
+                <h1 class="display-4 fw-bold mb-3">Hubungi Kami</h1>
+                <p class="lead mb-4">Kami siap melayani dan menjawab pertanyaan Anda</p>
+            </div>
+        </section>
+
+        <section class="container mb-5">
+            <div class="row g-5 justify-content-center">
+                <div class="col-lg-7">
+                    <h2 class="section-title">Informasi Kontak</h2>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="bi bi-geo-alt-fill"></i>
+                        </div>
+                        <div>
+                            <h5>Alamat</h5>
+                            <p>Ruko Central Sukajadi, B1 No. 12B, Sukajadi, Batam Kota, Batam City, Riau Islands</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="bi bi-telephone-fill"></i>
+                        </div>
+                        <div>
+                            <h5>Telepon</h5>
+                            <p>+62 21 7654321<br>+62 21 7654322 (Fax)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="bi bi-envelope-fill"></i>
+                        </div>
+                        <div>
+                            <h5>Email</h5>
+                            <p>info@yayasannewlife.org<br>pelayanan@yayasannewlife.org (Untuk konseling)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="bi bi-clock-fill"></i>
+                        </div>
+                        <div>
+                            <h5>Jam Pelayanan</h5>
+                            <div class="office-hours">
+                                <ul class="list-unstyled">
+                                    <li><strong>Senin - Kamis:</strong> 09.00 - 17.00 WIB</li>
+                                    <li><strong>Jumat:</strong> 09.00 - 16.00 WIB</li>
+                                    <li><strong>Sabtu:</strong> 09.00 - 14.00 WIB</li>
+                                    <li><strong>Minggu:</strong> Kantor tutup (ibadah tetap berjalan)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <h5 class="mb-3">Media Sosial</h5>
+                        <div>
+                            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-whatsapp"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-twitter-x"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container mb-5">
+            <h2 class="text-center section-title center-title">Lokasi Kami</h2>
+            <p class="text-center mb-4">Kunjungi gereja kami di lokasi strategis di Batam</p>
+            
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127650.684863273!2d103.88093619726563!3d1.0993588999999946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d98f0050da79d3%3A0x4c45f123ebbd0462!2sGPIA%20New%20Life!5e0!3m2!1sen!2sid!4v1753527676031!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 text-center p-4">
+                        <div class="contact-icon">
+                            <i class="bi bi-car-front-fill"></i>
+                        </div>
+                        <h5>Transportasi Umum</h5>
+                        <p>Halte bus terdekat: Halte Kebenaran (150m)<br>Stasiun KRL: Stasiun Damai (800m)<br>: Koridor 8 (300m)</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 text-center p-4">
+                        <div class="contact-icon">
+                            <i class="bi bi-p-circle-fill"></i>
+                        </div>
+                        <h5>Parkir</h5>
+                        <p>Area parkir luas tersedia untuk mobil dan motor<br>Kapasitas: 50 mobil, 200 motor<br>Parkir gratis untuk jemaat</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100 text-center p-4">
+                        <div class="contact-icon">
+                            <i class="bi bi-info-circle-fill"></i>
+                        </div>
+                        <h5>Aksesibilitas</h5>
+                        <p>Fasilitas ramah disabilitas tersedia<br>Toilet aksesibel, jalur kursi roda<br>Tanda petunjuk braille untuk tunanetra</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // load partials
+        fetch('partials/navbar.html').then(res => res.text()).then(data => document.getElementById('navbar').innerHTML = data);
+        fetch('partials/footer.html').then(res => res.text()).then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+</body>
+</html>

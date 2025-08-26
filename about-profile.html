@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Gereja - Yayasan New Life</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary: #3a7bd5;
+            --secondary: #4cb1a7;
+            --accent: #f5a742;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --text: #333333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            padding-top: 80px;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: var(--dark);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            padding: 15px 0;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 1rem !important;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 70%;
+            left: 15%;
+        }
+
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(58, 123, 213, 0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: #2d69c1;
+            border-color: #2d69c1;
+        }
+
+        .btn-donate {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .btn-donate:hover {
+            background-color: #e5972a;
+            border-color: #e5972a;
+            color: white;
+        }
+        
+        /* Banner Styles */
+        .banner {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 0;
+            margin-bottom: 3rem;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--accent);
+            margin-top: 10px;
+            border-radius: 2px;
+        }
+
+        .center-title::after {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .profile-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .icon-list li {
+            margin-bottom: 1rem;
+        }
+
+        .icon-list i {
+            font-size: 1.5rem;
+            color: var(--primary);
+            width: 40px;
+            text-align: center;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 0 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .footer-title {
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            position: relative;
+            font-size: 1.3rem;
+        }
+
+        .footer-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+            margin-top: 10px;
+        }
+        
+        .footer-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        .footer-link:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .social-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar"></div>
+    <main>
+        <section class="banner">
+            <div class="container text-center">
+                <h1 class="display-4 fw-bold mb-3">Mengenal Gereja Kami</h1>
+                <p class="lead mb-4">Perjalanan iman, visi, dan nilai-nilai yang membentuk Yayasan New Life</p>
+            </div>
+        </section>
+
+        <section class="container mb-5">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1543781985-78c6e2101569?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Yayasan New Life Sejarah" class="profile-img">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title">Sejarah Kami</h2>
+                    <p class="lead">Yayasan New Life didirikan pada tahun 1985 oleh sekelompok kecil orang percaya yang memiliki visi besar untuk membawa Injil dan kasih Kristus kepada masyarakat.</p>
+                    <p>Berawal dari persekutuan doa sederhana di sebuah rumah, kini Tuhan telah mempercayakan kepada kami sebuah gedung gereja yang kokoh dan komunitas jemaat yang terus bertumbuh. Sepanjang perjalanan, kami telah menghadapi berbagai tantangan, namun anugerah Tuhan senantiasa memimpin kami. Setiap langkah kami adalah bukti nyata dari kesetiaan-Nya.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container mb-5 bg-light-custom py-5 rounded-3">
+            <h2 class="text-center section-title center-title">Visi & Misi Kami</h2>
+            <p class="text-center mb-5">Visi dan misi yang menjadi kompas dalam setiap langkah pelayanan kami.</p>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100 p-4">
+                        <h3 class="fw-bold text-primary">Visi</h3>
+                        <p>Menjadi komunitas orang percaya yang **relevan**, **transformatif**, dan menjadi **berkat** bagi kota dan bangsa melalui nilai-nilai Kerajaan Allah.</p>
+                        <p>Kami bermimpi melihat setiap jemaat bertumbuh menjadi pengikut Kristus yang sejati, berani berdampak, dan mampu menginspirasi perubahan positif di lingkungan mereka.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 p-4">
+                        <h3 class="fw-bold text-primary">Misi</h3>
+                        <p>Kami menjalankan misi ini dengan fokus pada empat pilar utama:</p>
+                        <ul class="list-unstyled icon-list">
+                            <li><i class="bi bi-person-check-fill"></i> **Memuridkan:** Membangun iman yang kokoh dan karakter yang menyerupai Kristus.</li>
+                            <li><i class="bi bi-people-fill"></i> **Membangun Komunitas:** Menciptakan lingkungan yang penuh kasih, dukungan, dan penerimaan.</li>
+                            <li><i class="bi bi-globe-americas"></i> **Misi:** Menyebarkan Injil dan melakukan pekerjaan baik bagi mereka yang membutuhkan.</li>
+                            <li><i class="bi bi-lightbulb-fill"></i> **Inovasi:** Menggunakan cara-cara kreatif dan relevan untuk menjangkau generasi masa kini.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container mb-5">
+            <h2 class="text-center section-title center-title">Nilai-Nilai Kami</h2>
+            <p class="text-center mb-5">Fondasi spiritual yang menopang seluruh pelayanan dan kehidupan jemaat.</p>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 text-center p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-heart-fill"></i>
+                        </div>
+                        <h4 class="fw-bold text-primary">Kasih Tanpa Syarat</h4>
+                        <p>Kami berusaha mencintai dan menerima setiap orang, sebagaimana Kristus telah lebih dulu mengasihi kita. Kasih adalah inti dari semua yang kami lakukan.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 text-center p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-hand-thumbs-up-fill"></i>
+                        </div>
+                        <h4 class="fw-bold text-primary">Integritas</h4>
+                        <p>Kami berkomitmen untuk hidup dengan kejujuran dan integritas, baik dalam pelayanan maupun kehidupan pribadi, sebagai cerminan karakter Kristus.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 text-center p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-infinity"></i>
+                        </div>
+                        <h4 class="fw-bold text-primary">Pertumbuhan Berkelanjutan</h4>
+                        <p>Kami mendorong setiap jemaat untuk terus bertumbuh dalam iman, pengetahuan, dan pemanfaatan karunia rohani mereka demi kemuliaan Tuhan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        fetch('partials/navbar.html').then(res => res.text()).then(data => document.getElementById('navbar').innerHTML = data);
+        fetch('partials/footer.html').then(res => res.text()).then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+</body>
+</html>

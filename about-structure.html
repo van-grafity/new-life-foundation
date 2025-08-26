@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Struktur Organisasi - Yayasan New Life</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary: #3a7bd5;
+            --secondary: #4cb1a7;
+            --accent: #f5a742;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --text: #333333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            padding-top: 80px;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: var(--dark);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            padding: 15px 0;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 1rem !important;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 70%;
+            left: 15%;
+        }
+
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(58, 123, 213, 0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: #2d69c1;
+            border-color: #2d69c1;
+        }
+
+        .btn-donate {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .btn-donate:hover {
+            background-color: #e5972a;
+            border-color: #e5972a;
+            color: white;
+        }
+        
+        /* Banner Styles */
+        .banner {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 0;
+            margin-bottom: 3rem;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--accent);
+            margin-top: 10px;
+            border-radius: 2px;
+        }
+
+        .center-title::after {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .team-photo {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--primary);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .team-member {
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: scale(1.05);
+        }
+
+        .hierarchy-chart {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .hierarchy-chart .node {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin: 10px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            font-weight: 600;
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .hierarchy-chart .line-vertical {
+            width: 2px;
+            height: 30px;
+            background: var(--primary);
+        }
+
+        .hierarchy-chart .line-horizontal {
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .hierarchy-chart .flex-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hierarchy-chart .flex-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 20px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 0 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .footer-title {
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            position: relative;
+            font-size: 1.3rem;
+        }
+
+        .footer-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+            margin-top: 10px;
+        }
+        
+        .footer-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        .footer-link:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .social-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar"></div>
+    <main>
+        <section class="banner">
+            <div class="container text-center">
+                <h1 class="display-4 fw-bold mb-3">Struktur Organisasi</h1>
+                <p class="lead mb-4">Membangun gereja yang kuat melalui kepemimpinan yang berintegritas dan melayani</p>
+            </div>
+        </section>
+
+        <section class="container mb-5">
+            <h2 class="text-center section-title center-title">Kepemimpinan Pelayan</h2>
+            <p class="text-center mb-5">Kami percaya bahwa kepemimpinan adalah tentang melayani. Tim kepemimpinan kami berkomitmen untuk menuntun jemaat dengan hati yang tulus dan visi yang jelas.</p>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="card h-100 p-4 team-member">
+                        <div class="d-flex justify-content-center mb-3">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a86894010d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Pdt. Jonathan Manopo" class="team-photo">
+                        </div>
+                        <h4 class="fw-bold mb-1">Pdt. Jonathan Manopo</h4>
+                        <p class="text-primary fw-medium">Gembala Sidang Senior</p>
+                        <p>Pemimpin visioner yang mengemban tugas untuk mengarahkan gereja sesuai dengan kehendak Tuhan.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="card h-100 p-4 team-member">
+                        <div class="d-flex justify-content-center mb-3">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" alt="Ibu Sarah Tumbelaka" class="team-photo">
+                        </div>
+                        <h4 class="fw-bold mb-1">Ibu Sarah Tumbelaka</h4>
+                        <p class="text-primary fw-medium">Ketua Majelis Gereja</p>
+                        <p>Mengawasi operasional dan administrasi gereja, memastikan setiap pelayanan berjalan dengan baik.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="card h-100 p-4 team-member">
+                        <div class="d-flex justify-content-center mb-3">
+                            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Pdt. Samuel Harapan" class="team-photo">
+                        </div>
+                        <h4 class="fw-bold mb-1">Pdt. Samuel Harapan</h4>
+                        <p class="text-primary fw-medium">Koordinator Pelayanan</p>
+                        <p>Bertanggung jawab atas koordinasi semua program pelayanan dan komisi di dalam gereja.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container mb-5 bg-light-custom py-5 rounded-3">
+            <h2 class="text-center section-title center-title">Struktur Departemen</h2>
+            <p class="text-center mb-5">Setiap departemen bekerja sama untuk mewujudkan visi dan misi gereja.</p>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 text-center p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+                        <h4 class="fw-bold text-primary">Departemen Pelayanan</h4>
+                        <p>Mengatur ibadah, persekutuan, dan kelompok sel untuk membangun komunitas yang erat.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 text-center p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-person-heart"></i>
+                        </div>
+                        <h4 class="fw-bold text-primary">Departemen Misi & Sosial</h4>
+                        <p>Menjangkau masyarakat melalui program sosial, kemanusiaan, dan misi penginjilan.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 text-center p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-music-note-beamed"></i>
+                        </div>
+                        <h4 class="fw-bold text-primary">Departemen Musik & Seni</h4>
+                        <p>Memimpin jemaat dalam pujian dan penyembahan yang otentik dan penuh kuasa.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 text-center p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-book-half"></i>
+                        </div>
+                        <h4 class="fw-bold text-primary">Departemen Pemuridan</h4>
+                        <p>Menyelenggarakan kelas Alkitab dan pemuridan untuk pertumbuhan rohani yang berkelanjutan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container mb-5">
+            <h2 class="text-center section-title center-title">Diagram Organisasi</h2>
+            <p class="text-center mb-5">Struktur kepemimpinan yang terpadu dan saling mendukung</p>
+            <div class="hierarchy-chart">
+                <div class="node">Jemaat</div>
+                <div class="line-vertical"></div>
+                <div class="node">Majelis Jemaat</div>
+                <div class="line-vertical"></div>
+                <div class="node">Gembala Sidang</div>
+                <div class="line-vertical"></div>
+                <div class="flex-row">
+                    <div class="flex-item">
+                        <div class="line-vertical"></div>
+                        <div class="node">Ketua Departemen</div>
+                        <div class="line-vertical"></div>
+                        <div class="flex-row">
+                            <div class="flex-item">
+                                <div class="line-vertical"></div>
+                                <div class="node">Pemimpin Divisi</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-item">
+                        <div class="line-vertical"></div>
+                        <div class="node">Koordinator Komisi</div>
+                        <div class="line-vertical"></div>
+                        <div class="flex-row">
+                            <div class="flex-item">
+                                <div class="line-vertical"></div>
+                                <div class="node">Relawan & Staf</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="footer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        fetch('partials/navbar.html').then(res => res.text()).then(data => document.getElementById('navbar').innerHTML = data);
+        fetch('partials/footer.html').then(res => res.text()).then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+</body>
+</html>

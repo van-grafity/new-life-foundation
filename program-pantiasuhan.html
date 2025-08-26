@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panti Asuhan Kasih - Yayasan New Life</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary: #3a7bd5;
+            --secondary: #4cb1a7;
+            --accent: #f5a742;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --text: #333333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            padding-top: 80px;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: var(--dark);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 1rem !important;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 70%;
+            left: 15%;
+        }
+
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(58, 123, 213, 0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: #2d69c1;
+            border-color: #2d69c1;
+        }
+
+        .btn-donate {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            color: white;
+            font-weight: 600;
+        }
+
+        .btn-donate:hover {
+            background-color: #e5972a;
+            border-color: #e5972a;
+            color: white;
+        }
+
+        /* Banner Styles */
+        .banner {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 0;
+            margin-bottom: 3rem;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--accent);
+            margin-top: 10px;
+            border-radius: 2px;
+        }
+
+        .center-title::after {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .panti-img {
+            max-height: 350px;
+            object-fit: cover;
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .cta-box {
+            background-color: var(--primary);
+            color: white;
+            border-radius: 15px;
+            padding: 2rem;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 0 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .footer-title {
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            position: relative;
+            font-size: 1.3rem;
+        }
+
+        .footer-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+            margin-top: 10px;
+        }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        .footer-link:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .social-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar"></div>
+    <main>
+        <section class="banner">
+            <div class="container text-center">
+                <h1 class="display-4 fw-bold mb-3">Panti Asuhan "Kasih"</h1>
+                <p class="lead mb-4">Rumah penuh kasih bagi anak-anak yang membutuhkan</p>
+            </div>
+        </section>
+
+        <section class="container mb-5">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1544256247-f3d2f92f2549?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Panti Asuhan Kasih" class="panti-img">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title">Melayani dengan Hati</h2>
+                    <p class="lead">Panti Asuhan "Kasih" adalah wujud nyata dari komitmen Yayasan New Life untuk melayani sesama.</p>
+                    <p>Kami menyediakan tempat tinggal yang aman, pendidikan yang layak, dan bimbingan rohani bagi anak-anak yang tidak memiliki orang tua atau berasal dari keluarga kurang mampu. Kami percaya setiap anak adalah anugerah Tuhan yang berharga dan berhak mendapatkan masa depan yang cerah.</p>
+                    <a href="donate.html" class="btn btn-primary rounded-pill px-4 me-3">Dukung Program Ini</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="container mb-5 bg-light-custom py-5 rounded-3">
+            <h2 class="text-center section-title center-title">Bagaimana Anda Dapat Berpartisipasi?</h2>
+            <p class="text-center mb-5">Mari bersama-sama menjadi berkat bagi anak-anak di Panti Asuhan "Kasih".</p>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 text-center p-4">
+                        <i class="bi bi-currency-dollar text-primary display-5 mb-3"></i>
+                        <h4 class="fw-bold">Donasi Finansial</h4>
+                        <p>Bantuan finansial Anda sangat berarti untuk memenuhi kebutuhan sehari-hari anak-anak, seperti makanan, pakaian, dan kebutuhan sekolah.</p>
+                        <a href="donate.html" class="btn btn-outline-primary mt-auto">Donasi Sekarang</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 text-center p-4">
+                        <i class="bi bi-people-fill text-primary display-5 mb-3"></i>
+                        <h4 class="fw-bold">Menjadi Relawan</h4>
+                        <p>Luangkan waktu Anda untuk mengajar, bermain, atau sekadar berbagi cerita dengan anak-anak. Kehadiran Anda adalah hadiah yang tak ternilai.</p>
+                        <a href="contact.html" class="btn btn-outline-primary mt-auto">Daftar Relawan</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 text-center p-4">
+                        <i class="bi bi-box-seam-fill text-primary display-5 mb-3"></i>
+                        <h4 class="fw-bold">Bantuan Barang</h4>
+                        <p>Kami juga menerima sumbangan berupa barang, seperti buku, alat tulis, mainan edukatif, atau perlengkapan lainnya.</p>
+                        <a href="contact.html" class="btn btn-outline-primary mt-auto">Hubungi Kami</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container mb-5">
+            <div class="cta-box text-center">
+                <h3 class="fw-bold text-white mb-3">"Sebab itu jadilah teladan bagi orang-orang percaya, dalam perkataanmu, dalam tingkah lakumu, dalam kasihmu, dalam kesetiaanmu dan dalam kesucianmu."</h3>
+                <p class="lead text-white-50">1 Timotius 4:12</p>
+            </div>
+        </section>
+    </main>
+    <div id="footer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        fetch('partials/navbar.html').then(res => res.text()).then(data => document.getElementById('navbar').innerHTML = data);
+        fetch('partials/footer.html').then(res => res.text()).then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+</body>
+</html>
