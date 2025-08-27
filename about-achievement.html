@@ -20,6 +20,15 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: var(--text);
             padding-top: 80px;
+            opacity: 0;
+            filter: blur(10px);
+            transition: opacity 0.8s ease, filter 0.8s ease;
+            will-change: filter; /* Add this line */
+        }
+
+        body.page-loaded {
+            opacity: 1;
+            filter: blur(0);
         }
 
         /* Navbar Styles */
@@ -31,7 +40,13 @@
         
         .navbar-brand {
             font-weight: 700;
-            font-size: 1.8rem;
+            font-size: 1.2rem;
+        }
+
+        .navbar-brand img {
+            border-right: 2px solid #ccc;
+            padding-right: 10px;
+            margin-right: 10px;
         }
 
         .nav-link {
@@ -77,14 +92,14 @@
             border-color: #2d69c1;
         }
 
-        .btn-donate {
+        .btn-contact-us {
             background-color: var(--accent);
             border-color: var(--accent);
             color: white;
             font-weight: 600;
         }
         
-        .btn-donate:hover {
+        .btn-contact-us:hover {
             background-color: #e5972a;
             border-color: #e5972a;
             color: white;
@@ -319,6 +334,13 @@
     <script>
         fetch('partials/navbar.html').then(res => res.text()).then(data => document.getElementById('navbar').innerHTML = data);
         fetch('partials/footer.html').then(res => res.text()).then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            setTimeout(() => {
+                document.body.classList.add("page-loaded");
+            }, 10); // Adjust delay as needed (e.g., 10 milliseconds)
+        });
     </script>
 </body>
 </html>
